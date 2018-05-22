@@ -3,6 +3,8 @@ export default class Category {
     this.id = id;
     this.name = name;
     this.categories = [];
+    this.title = "";
+    this.content = "";
   }
 
   addCategory(category) {

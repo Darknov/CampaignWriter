@@ -33,8 +33,8 @@ $(document).ready(function () {
 function onchangeTitle() {
   const id = main.content.data("data-category-id");
   const category = app.getCategory(id);
-  category.title = main.title.val();
-  console.log(category.title);
+  category.title = main.title.val() ? main.title.val() : "no name";
+  $("#left-row-" + category.id).text(category.title);
 
 }
 
@@ -46,7 +46,7 @@ function onclickCategory(id) {
 
 function nextCategory() {
   const category = app.getCategory(app.getCategoryLength() - 1);
-  return '<div id="left-row-' + category.id + '" class="leftRow category draggable"><a href="#" type="button" class="btn btn-light">' + category.name + '</a></div>'
+  return '<div class="leftRow category draggable"><a href="#" id="left-row-' + category.id + '" type="button" class="btn btn-light">' + category.name + '</a></div>'
 }
 
 function addCategory() {

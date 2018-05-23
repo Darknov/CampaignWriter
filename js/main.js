@@ -14,34 +14,64 @@ const app = (function () {
   };
 })();
 
-const main = (function () {
+const story = (function () {
   const title = $("#title");
   const rest = $("#rest");
-  const content = $("#content");
+
   return {
     title,
     rest,
-    content
+
   };
 })();
 
+const leftPanel = (function () {
+
+  return {
+
+  };
+})();
+
+const options = (function () {
+  const story = $("#story");
+  const storyPanel = $("#storyPanel");
+  const storyButton = $("#storyButton");
+
+
+  let currentPanel = story;
+  return {
+    currentPanel,
+    story,
+    storyPanel,
+    storyButton
+  };
+})();
+
+
+
 $(document).ready(function () {
   $("#addCategory").click(addCategory);
-  main.title.change(onchangeTitle);
+  story.title.change(onchangeTitle);
+
+  options.storyButton.click(onclickStory);
 });
 
+function onclickStory() {
+  console.log("story clicked!");
+}
+
 function onchangeTitle() {
-  const id = main.content.data("data-category-id");
+  const id = options.storyPanel.data("data-category-id");
   const category = app.getCategory(id);
-  category.title = main.title.val() ? main.title.val() : "no name";
+  category.title = story.title.val() ? story.title.val() : "no name";
   $("#left-row-" + category.id).text(category.title);
 
 }
 
 function onclickCategory(id) {
   const category = app.getCategory(id);
-  main.content.data("data-category-id", category.id);
-  main.title.val(category.title);
+  options.storyPanel.data("data-category-id", category.id);
+  story.title.val(category.title);
 }
 
 function nextCategory() {

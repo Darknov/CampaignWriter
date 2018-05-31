@@ -27,6 +27,7 @@ div {
 
 .opened {
   background-color: rgb(82, 82, 82);
+  color: white;
 }
 
 .opened:hover {

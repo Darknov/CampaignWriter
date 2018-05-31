@@ -12,4 +12,8 @@ export default class Category {
     this.categories.push(category);
     return this;
   }
+
+  getButton() {
+    return $("#left-row-" + this.id);
+  }
 }

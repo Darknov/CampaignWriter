@@ -69,8 +69,11 @@ function onchangeTitle() {
 }
 
 function onclickCategory(id) {
+  console.log(id);
+  $( ".opened" ).removeClass('opened');
   const category = app.getCategory(id);
   options.storyPanel.data("data-category-id", category.id);
+  $("#left-row-" + id).addClass('opened');
   story.title.val(category.title);
 }
 

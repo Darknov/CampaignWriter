@@ -69,21 +69,17 @@ function onchangeTitle() {
 }
 
 function onclickCategory(id) {
-  $( ".opened" ).removeClass('opened');
+  // find opened category and close it
+  console.log($( "#left-row" ).find('.opened'));
+  $( '#leftMenu .opened').removeClass('opened');
+  
   const category = app.getCategory(id);
   options.storyPanel.data("data-category-id", category.id);
   category.getButton().addClass('opened');
   story.title.val(category.title);
 }
 
-function nextCategory() {
-  const category = app.getCategory(app.getCategoryLength() - 1);
-  return '<div class="leftRow category draggable"><a href="#" id="left-row-' + category.id + '" type="button" class="btn btn-light">' + category.name + '</a></div>'
-}
-
 function addCategory() {
   let category = app.addCategory();
-  $("#leftMenu").append(nextCategory());
-  $("#left-row-" + category.id).click(() => onclickCategory(category.id));
-
+  category.getButton().click(() => onclickCategory(category.id));
 }

@@ -1,3 +1,8 @@
+/*
+ *  These are various options for Categories
+ * to specify e.g. Name, race, religion etc. 
+ */
+
 export default class Option {
   constructor(name) {
     this.name = name;

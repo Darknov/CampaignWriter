@@ -1,59 +1,22 @@
 import Category from './Category.js';
+import * as app from './app';
 
-const app = (function () {
-  let categories = [];
 
-  return {
-    getCategoryLength: () => categories.length,
-    addCategory: () => {
-      let c = new Category(categories.length, "New Category")
-      categories.push(c);
-      return c;
-    },
-    getCategory: (id) => categories[id],
-  };
-})();
-
-const story = (function () {
-  const title = $("#title");
-  const rest = $("#rest");
-
-  return {
-    title,
-    rest,
-
-  };
-})();
-
-const leftPanel = (function () {
-
-  return {
-
-  };
-})();
 
 const options = (function () {
-  const story = $("#story");
-  const storyPanel = $("#storyPanel");
-  const storyButton = $("#storyButton");
-
-
   let currentPanel = story;
   return {
     currentPanel,
-    story,
-    storyPanel,
-    storyButton
   };
 })();
 
 
 
 $(document).ready(function () {
-  $("#addCategory").click(addCategory);
-  story.title.change(onchangeTitle);
+  // $("#addCategory").click(addCategory);
+  // story.title.change(onchangeTitle);
 
-  options.storyButton.click(onclickStory);
+  // options.storyButton.click(onclickStory);
 });
 
 function onclickStory() {
@@ -61,17 +24,18 @@ function onclickStory() {
 }
 
 function onchangeTitle() {
-  const id = options.storyPanel.data("data-category-id");
-  const category = app.getCategory(id);
-  category.title = story.title.val() ? story.title.val() : "no name";
-  $("#left-row-" + category.id).text(category.title);
+  // const id = options.storyPanel.data("data-category-id");
+  // const category = app.getCategory(id);
+  // category.title = story.title.val() ? story.title.val() : "no name";
+  // $("#left-row-" + category.id).text(category.title);
 
 }
 
 function onclickCategory(id) {
   // find opened category and close it
-  console.log($( "#left-row" ).find('.opened'));
-  $( '#leftMenu .opened').removeClass('opened');
+  let test = 
+  
+  // $( '#leftMenu .opened').removeClass('opened');
   
   const category = app.getCategory(id);
   options.storyPanel.data("data-category-id", category.id);

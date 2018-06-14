@@ -1,4 +1,4 @@
 # CampaignWriter
 Tool for GMs to write consistent custom campaigns for rpg tabletop games. 
 
-You can test it here: https://darknov.github.io/CampaignWriter/
+For now I need to think over structure for the project - demo soon hopefully!
